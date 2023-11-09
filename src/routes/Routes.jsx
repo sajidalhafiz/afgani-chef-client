@@ -8,6 +8,8 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import UserProfile from "../pages/UserProfile/UserProfile/UserProfile";
 import NotFound404 from "../pages/NotFound404/NotFound404";
+import Terms from "../pages/Terms/Terms";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 
 
 const router = createBrowserRouter([
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
             {
                 path: 'userProfile',
                 element: <UserProfile/>
+            },
+            {
+                path: 'forgotPassword',
+                element: <ForgotPassword/>
+            },
+            {
+                path: 'terms',
+                element: <Terms/>
             },
             {
                 path: '*',
