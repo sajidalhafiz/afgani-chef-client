@@ -1,19 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { FaUser } from "react-icons/fa6";
 
 const navigation = [
     { name: 'Home', to: '/', current: true },
     { name: 'About Us', to: '/about', current: false },
     { name: 'Chef Recipes', to: '/chefRecipes', current: false },
-    { name: 'Blog', to: '/blog', current: false },
-    { name: 'Log In', to: '/login', current: false },
-    { name: 'Sign Up', to: '/signup', current: false },
+    { name: 'Blog', to: '/blog', current: false }
 ]
 
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+    }
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -57,27 +64,24 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                                <button
+                                {/* <button
                                     type="button"
                                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
                                     <span className="absolute -inset-1.5" />
                                     <span className="sr-only">View notifications</span>
                                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
+                                </button> */}
 
                                 {/* Profile dropdown */}
-                                <Menu as="div" className="relative ml-3">
-                                    <div>
+                                {user ? <Menu as="div" className="relative ml-3">
+                                    <div className='flex items-center gap-4'>
                                         <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
-                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
-                                            />
+                                            <FaUser className="h-8 w-8 rounded-full text-white" />
                                         </Menu.Button>
+                                        <button onClick={handleLogOut} className="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Log Out</button>
                                     </div>
                                     <Transition
                                         as={Fragment}
@@ -105,7 +109,8 @@ const NavBar = () => {
                                             </Menu.Item>
                                         </Menu.Items>
                                     </Transition>
-                                </Menu>
+                                </Menu> :
+                                    <Link to='/login' className="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Log In</Link>}
                             </div>
                         </div>
                     </div>

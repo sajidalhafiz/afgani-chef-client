@@ -10,17 +10,20 @@ const SignUp = () => {
         event.preventDefault();
 
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password); 
+        const photoURL = form.photoURL.value;
+        console.log(email, password);
 
         createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+                alert(error.message)
+            })
 
     }
 
@@ -51,6 +54,17 @@ const SignUp = () => {
                     </div>
                     <form className="space-y-4 md:space-y-6" onSubmit={handleOnSubmit}>
                         <div>
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="name@company.com"
+                                required
+                            />
+                        </div>
+                        <div>
                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                             <input
                                 type="email"
@@ -73,15 +87,8 @@ const SignUp = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                            <input
-                                type="confirm-password"
-                                name="confirm-password"
-                                id="confirm-password"
-                                placeholder="••••••••"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required
-                            />
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="small_size">Small file input</label>
+                            <input name='photoURL' className="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="small_size" type="file"/>
                         </div>
                         <div className="flex items-start">
                             <div className="flex items-center h-5">
