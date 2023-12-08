@@ -1,11 +1,12 @@
 import React from 'react';
-import Banner from '../../Home/Banner/Banner';
+import ChefBanner from '../ChefBanner/ChefBanner';
+import Recipes from '../Recipes/Recipes';
 
 const ChefRecipes = () => {
     return (
         <div>
-            <Banner/>
-            
+            <ChefBanner/>
+            <Recipes/>
         </div>
     );
 };

@@ -5,6 +5,11 @@ const Footer = () => {
     return (
         <footer className="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
             <div className="mx-auto max-w-screen-xl text-center">
+                <img
+                    className="h-auto sm:h-16 w-auto mx-auto"
+                    src="afgani-chef-logo-white.png"
+                    alt="Afgani Chef"
+                />
                 <p className="my-6 text-gray-500 dark:text-gray-400">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quibusdam vitae voluptate veniam eos ad corporis animi quam soluta! Eaque.
                 </p>
