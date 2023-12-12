@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="mx-auto max-w-screen-xl text-center">
                 <img
                     className="h-auto sm:h-16 w-auto mx-auto"
-                    src="afgani-chef-logo-white.png"
+                    src="../../../../public/afgani-chef-logo-white.png"
                     alt="Afgani Chef"
                 />
                 <p className="my-6 text-gray-500 dark:text-gray-400">

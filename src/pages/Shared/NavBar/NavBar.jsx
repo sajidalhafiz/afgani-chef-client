@@ -46,8 +46,8 @@ const NavBar = () => {
                                 <div className="flex-0">
                                     <img
                                         className="h-10 sm:h-16 w-auto"
-                                        src="afgani-chef-logo-white.png"
-                                        alt="Afgani Chef"
+                                        src="../../../../public/afgani-chef-logo-white.png"
+                                        alt="Afgani Chef Logo"
                                     />
                                 </div>
                                 <div className="hidden sm:ml-6 sm:flex items-center justify-center flex-1">

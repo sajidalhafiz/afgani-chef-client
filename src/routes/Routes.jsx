@@ -19,43 +19,44 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: 'about',
-                element: <AboutUs/>
+                element: <AboutUs />
             },
             {
-                path: 'chefRecipes',
-                element: <ChefRecipes/>
+                path: 'chefRecipes/:chefId',
+                element: <ChefRecipes />,
+                loader: ({ params }) => fetch(`http://localhost:5000/chefData/${params.chefId}`)
             },
             {
                 path: 'blog',
-                element: <Blog/>
+                element: <Blog />
             },
             {
                 path: 'login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: 'signup',
-                element: <SignUp/>
+                element: <SignUp />
             },
             {
                 path: 'userProfile',
-                element: <UserProfile/>
+                element: <UserProfile />
             },
             {
                 path: 'forgotPassword',
-                element: <ForgotPassword/>
+                element: <ForgotPassword />
             },
             {
                 path: 'terms',
-                element: <Terms/>
+                element: <Terms />
             },
             {
                 path: '*',
-                element: <NotFound404/>
+                element: <NotFound404 />
             }
         ]
     }

@@ -12,10 +12,10 @@ const Home = () => {
     console.log(user)
     return (
         <div>
-            <Banner/>
-            <Stats/>
-            <ChefSection/>
-            <Reviews/>
+            <Banner />
+            <Stats />
+            <ChefSection />
+            <Reviews />
         </div>
     );
 };

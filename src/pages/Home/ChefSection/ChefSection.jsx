@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import chef1 from '../../../assets/chef-1.png';
@@ -10,90 +10,29 @@ import chef6 from '../../../assets/chef-6.jpg';
 import SectionHeader from '../../Shared/SectionHeader/SectionHeader';
 import ChefCard from '../ChefCard/ChefCard';
 
+const headingContent = {
+    pashtoHeading: "آشپزان ما را ملاقات کنید",
+    englishHeading: "Meet Our Chefs",
+    description: "Explore the culinary brilliance that graces our platform by meeting our talented chefs. Each chef brings a unique blend of expertise, passion, and creativity to the table. From seasoned professionals to rising stars, our diverse lineup of culinary artists is ready to craft extraordinary dining experiences for you. Get to know the faces behind the flavors and discover the stories that inspire their exceptional dishes."
+}
+
 const ChefSection = () => {
+
+    const [chefData, setChefData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/chefData')
+            .then(res => res.json())
+            .then(data => setChefData(data))
+    }, [])
+
     return (
         <>
-            <SectionHeader />
+            <SectionHeader headingContent={headingContent} />
             <div className='grid grid-cols-3 gap-6'>
-                <ChefCard/>
-                <div className="max-w-sm h-[500px] border border-gray-200 rounded-t-full rounded-b-3xl shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-full h-auto w-full" src={chef1} alt="" />
-                    {/* <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div> */}
-                </div>
-                <div className="max-w-sm h-[500px] bg-white border border-gray-200 rounded-full shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-full h-auto w-full" src={chef2} alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-                <div className="max-w-sm h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg h-1/2 w-full" src={chef3} alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-                <div className="max-w-sm h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg h-1/2 w-full" src={chef4} alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-                <div className="max-w-sm h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg h-1/2 w-full" src={chef5} alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-                <div className="max-w-sm h-[500px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <img className="rounded-t-lg h-1/2 w-full" src={chef6} alt="" />
-                    <div className="p-5">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chef Name</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Years of experience</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Number of recipes</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Likes</p>
-                        <Link to="/chefRecipes" className="inline-flex gap-3 items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
-                            <span>View Recipes</span>
-                            <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
+                {
+                    chefData.map(chef => <ChefCard key={chef.id} chef={chef}/>)
+                }
             </div>
         </>
     );
