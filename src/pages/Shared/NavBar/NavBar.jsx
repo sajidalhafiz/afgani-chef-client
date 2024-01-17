@@ -9,7 +9,6 @@ import { Tooltip } from 'react-tooltip'
 const navigation = [
     { name: 'Home', to: '/', current: true },
     { name: 'About Us', to: '/about', current: false },
-    { name: 'Chef Recipes', to: '/chefRecipes', current: false },
     { name: 'Blog', to: '/blog', current: false }
 ]
 
@@ -19,7 +18,7 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
 
     console.log(user)
-    
+
     const handleLogOut = () => {
         logOut()
     }
@@ -73,8 +72,9 @@ const NavBar = () => {
                                     <div className='flex items-center gap-4'>
                                         <Menu.Button id='user-name' className="relative flex rounded-full bg-gray-800 text-sm hover:ring-2 hover:ring-white hover:ring-offset-4 hover:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
-                                            <span className="sr-only">Open user menu</span>
-                                            <FaUser className="h-8 w-8 rounded-full text-white" />
+                                            {user.photoURL ? 
+                                            <img src={user.photoURL} className="rounded-full w-28" /> : <FaUser className="h-8 w-8 rounded-full text-white" />}
+
                                         </Menu.Button>
                                         <button onClick={handleLogOut} className="hidden sm:block w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Log Out</button>
                                     </div>

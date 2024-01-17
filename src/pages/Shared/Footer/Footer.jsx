@@ -11,32 +11,32 @@ const Footer = () => {
                     alt="Afgani Chef"
                 />
                 <p className="my-6 text-gray-500 dark:text-gray-400">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quibusdam vitae voluptate veniam eos ad corporis animi quam soluta! Eaque.
+                    Connecting Chefs with Food Lovers Worldwide Where Every Bite is an Experience.
                 </p>
                 <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
                     <li>
-                        <Link to="/" className="mr-4 hover:underline md:mr-6 ">
+                        <Link to="/" className="mr-4 hover:underline md:mr-6" >
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link to="/about" className="mr-4 hover:underline md:mr-6">
+                        <Link to="/about" className="mr-4 hover:underline md:mr-6" preventScrollReset={true}>
                             About Us
                         </Link>
                     </li>
                     <li>
-                        <Link to="/chefRecipes" className="mr-4 hover:underline md:mr-6 ">
+                        <Link to="/chefRecipes" className="mr-4 hover:underline md:mr-6" preventScrollReset={true}>
                             Chef Recipes
                         </Link>
                     </li>
                     <li>
-                        <Link to="/blog" className="mr-4 hover:underline md:mr-6">
+                        <Link to="/blog" className="mr-4 hover:underline md:mr-6" preventScrollReset={true}>
                             Blog
                         </Link>
                     </li>
                 </ul>
                 <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-                    © 2021-2022 <Link to="/" className="hover:underline">Afgani Chef™</Link>. All Rights Reserved.
+                    © 2024 <Link to="/" className="hover:underline">Afgani Chef™</Link>. All Rights Reserved.
                 </span>
             </div>
         </footer>
