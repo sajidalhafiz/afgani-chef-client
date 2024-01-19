@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import chef1 from '../../../assets/chef-1.png';
 import chef2 from '../../../assets/chef-2.png';
 import chef3 from '../../../assets/chef-3.png';
@@ -20,6 +20,8 @@ const ChefSection = () => {
 
     const [chefData, setChefData] = useState([]);
 
+    const navigation = useNavigation();
+
     useEffect(() => {
         fetch('http://localhost:5000/chefData')
             .then(res => res.json())
@@ -30,7 +32,7 @@ const ChefSection = () => {
         <>
             <SectionHeader headingContent={headingContent} />
             <div className='grid grid-cols-3 gap-6'>
-                {
+                {navigation.state === 'loading' ? <div className='text-white text-7xl font-bold'>Loading...</div> :
                     chefData.map(chef => <ChefCard key={chef.id} chef={chef}/>)
                 }
             </div>

@@ -9,7 +9,7 @@ import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     const user = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
     return (
         <div>
             <Banner />
