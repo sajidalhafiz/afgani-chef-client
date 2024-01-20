@@ -1,7 +1,7 @@
 # Afgani Chef
 Note: 
 - This website is developed for ProgrammingHero Web-development course assignment 10
-- To run this: Clone afgani-chef-server repo and run
+- To run this: Clone [afgani-chef-server](https://github.com/sajidalhafiz/afgani-chef-server) repo and run
 
 ### Tech used:
 - ReactJS | NodeJS | ExpressJS | Firebase Auth | TailwindCSS 
