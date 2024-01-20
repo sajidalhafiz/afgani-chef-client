@@ -9,9 +9,9 @@ const ChefCard = ({ chef }) => {
     const number_of_recipes = chef_recipes;
 
     return (
-        <div className="group max-w-sm h-60 rounded-3xl flex p-1 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-indigo-900 to-90%">
+        <div className="group max-w-sm h-60 rounded-3xl flex p-1 bg-slate-700 hover:bg-gradient-to-r hover:from-indigo-500 hover:from-10% hover:via-sky-500 hover:via-30% hover:to-indigo-900 hover:to-90%">
             <div className='bg-slate-900 rounded-l-3xl h-full w-3/4 relative'>
-                <img className="transition ease-in-out delay-150 group-hover:-translate-y-4 group-hover:-translate-x-4 group-hover:scale-105 duration-300  rounded-3xl object-cover h-full w-full" src={chef_picture_url} alt="" />
+                <img className="transition ease-in-out delay-150 group-hover:-translate-y-4 group-hover:-translate-x-4 group-hover:scale-105 duration-300 rounded-3xl object-cover h-full w-full" src={chef_picture_url} alt="" />
             </div>
             <div className="w-full bg-slate-900 rounded-r-3xl pl-6 pt-2">
                 <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">{chef_name}</h5>

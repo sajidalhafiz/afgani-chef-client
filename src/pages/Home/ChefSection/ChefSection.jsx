@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FaArrowRight } from 'react-icons/fa6';
-import { Link, useNavigation } from 'react-router-dom';
-import chef1 from '../../../assets/chef-1.png';
-import chef2 from '../../../assets/chef-2.png';
-import chef3 from '../../../assets/chef-3.png';
-import chef4 from '../../../assets/chef-4.png';
-import chef5 from '../../../assets/chef-5.jpg';
-import chef6 from '../../../assets/chef-6.jpg';
 import SectionHeader from '../../Shared/SectionHeader/SectionHeader';
 import ChefCard from '../ChefCard/ChefCard';
+import { GridLoader } from 'react-spinners';
 
 const headingContent = {
     pashtoHeading: "آشپزان ما را ملاقات کنید",
@@ -20,19 +13,24 @@ const ChefSection = () => {
 
     const [chefData, setChefData] = useState([]);
 
-    const navigation = useNavigation();
+    const [loading, setLoading]  = useState(false);
+
 
     useEffect(() => {
+        setLoading(true)
         fetch('http://localhost:5000/chefData')
             .then(res => res.json())
-            .then(data => setChefData(data))
+            .then(data => {
+                setChefData(data)
+                setLoading(false)
+            })
     }, [])
 
     return (
         <>
             <SectionHeader headingContent={headingContent} />
-            <div className='grid grid-cols-3 gap-6'>
-                {navigation.state === 'loading' ? <div className='text-white text-7xl font-bold'>Loading...</div> :
+            <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
+                {loading ? <GridLoader className='text-center mx-auto col-span-3' color="#ffffff" loading={loading}/> :
                     chefData.map(chef => <ChefCard key={chef.id} chef={chef}/>)
                 }
             </div>

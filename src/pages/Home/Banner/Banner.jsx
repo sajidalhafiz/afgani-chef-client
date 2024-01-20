@@ -15,9 +15,9 @@ const Banner = () => {
     return (
         <div className='flex flex-col-reverse md:flex-row mt-10 items-center'>
             <div className='relative me-9'>
-                <h2 className='text-8xl font-extrabold text-right bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 from-30% via-orange-500 via-70% to-red-500 to-90%'>پلټنګ ګورمې یو د عالم په یو ډګر</h2>
-                <h2 className='text-4xl font-extrabold text-gray-400 mt-10'>Connecting Chefs with Food Lovers Worldwide Where Every Bite is an Experience.</h2>
-                <img className='w-20 absolute top-32 rotate-12 ml-2' src={afganFlag} alt="" />
+                <h2 className='text-5xl sm:text-8xl font-extrabold text-right bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 from-30% via-orange-500 via-70% to-red-500 to-90%'>پلټنګ ګورمې یو د عالم په یو ډګر</h2>
+                <h2 className='text-2xl sm:text-4xl font-extrabold text-gray-400 mt-10'>Connecting Chefs with Food Lovers Worldwide Where Every Bite is an Experience.</h2>
+                <img className='hidden sm:block w-20 absolute sm:top-32 sm:rotate-12 ml-2' src={afganFlag} alt="" />
             </div>
             <div className='w-full md:w-1/2'>
                 <Swiper

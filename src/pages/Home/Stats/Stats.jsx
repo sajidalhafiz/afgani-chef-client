@@ -6,8 +6,8 @@ const stats = [
 
 export default function Stats() {
     return (
-        <div className="bg-slate-700 hover:bg-slate-600 shadow-inner rounded-xl my-10 py-24 sm:py-10">
-            <div className="mx-auto p-6 lg:p-6 shadow-2xl bg-slate-600 hover:bg-slate-700 w-11/12 rounded-lg">
+        <div className="bg-slate-700 hover:bg-slate-600 shadow-inner rounded-xl my-10 py-8 sm:py-10">
+            <div className="mx-auto p-6 shadow-2xl bg-slate-600 hover:bg-slate-700 w-11/12 rounded-lg">
                 <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
                     {stats.map((stat) => (
                         <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
