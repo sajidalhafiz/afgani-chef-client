@@ -1,11 +1,17 @@
 import React from 'react';
 import Article from '../Article/Article';
+import SectionHeader from '../../Shared/SectionHeader/SectionHeader';
+
+const headingContent = {
+    pashtoHeading: "د پوښتنې او جوابونو بلاګ",
+    englishHeading: "Question & Answer Blog",
+    description: ""
+}
 
 const Blog = () => {
     return (
-        <div>
-            <h1 className='text-5xl font-bold text-center'>Q&A Blog</h1>
-            <Article/>
+        <div className='my-8'>
+            <SectionHeader headingContent={headingContent} />
             <Article/>
         </div>
     );
