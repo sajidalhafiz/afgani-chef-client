@@ -1,6 +1,7 @@
+import LazyLoad from "react-lazy-load";
 
 
-export default function ChefBanner({chef}) {
+export default function ChefBanner({ chef }) {
 
     const { id, chef_name, chef_picture_url, chef_bio, years_of_experience, likes, chef_recipes } = chef;
 
@@ -9,11 +10,13 @@ export default function ChefBanner({chef}) {
             <div className="pt-6 grid grid-cols-6">
                 <div className="col-span-4 mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:px-8">
                     <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-                        <img
-                            src={chef_picture_url}
-                            alt="chef image"
-                            className="h-full w-full object-cover object-center"
-                        />
+                        <LazyLoad height="h-full">
+                            <img
+                                src={chef_picture_url}
+                                alt="chef image"
+                                className="h-full w-full object-cover object-center"
+                            />
+                        </LazyLoad>
                     </div>
                 </div>
 

@@ -6,19 +6,19 @@ Project Description
 
 ### Todo
 
-- [ ] redirect from chef-section item to chef recipes page  
-- [ ] initiate chef recipes page  
-- [ ] create chef-section  
-- [ ] create home banner  
-- [ ] initiate home component  
-- [ ] add navbar and footer in main layout component  
-- [ ] Create responsive footer  
-- [ ] create all pages of navbar  
+- [x] redirect from chef-section item to chef recipes page  
+- [x] initiate chef recipes page  
+- [x] create chef-section  
+- [x] create home banner  
+- [x] initiate home component  
+- [x] add navbar and footer in main layout component  
+- [x] Create responsive footer  
+- [x] create all pages of navbar  
 
 ### In Progress
 
-- [ ] Create responsive navbar  
-- [ ] push to github  
+- [x] Create responsive navbar  
+- [x] push to github  
 
 ### Done ✓
 

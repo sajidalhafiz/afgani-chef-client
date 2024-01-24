@@ -10,6 +10,7 @@ import UserProfile from "../pages/UserProfile/UserProfile/UserProfile";
 import NotFound404 from "../pages/NotFound404/NotFound404";
 import Terms from "../pages/Terms/Terms";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'chefRecipes/:chefId',
-                element: <ChefRecipes />,
+                element: <PrivateRoutes><ChefRecipes /></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chefData/${params.chefId}`)
             },
             {

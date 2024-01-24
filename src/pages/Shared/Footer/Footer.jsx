@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
+        <footer className="p-4 bg-slate-800 md:p-8 lg:p-10 dark:bg-gray-800">
             <div className="mx-auto max-w-screen-xl text-center">
                 <img
                     className="h-auto sm:h-16 w-auto mx-auto"
@@ -13,7 +13,7 @@ const Footer = () => {
                 <p className="my-6 text-gray-500 dark:text-gray-400">
                     Connecting Chefs with Food Lovers Worldwide Where Every Bite is an Experience.
                 </p>
-                <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+                <ul className="flex flex-wrap justify-center items-center mb-6 text-white">
                     <li>
                         <Link to="/" className="mr-4 hover:underline md:mr-6" >
                             Home

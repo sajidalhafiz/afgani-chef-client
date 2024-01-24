@@ -12,6 +12,8 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
 
+    const [loading, setLoading] = useState(true);
+
     const updateUser = (userName, photoURL) => {
         
             updateProfile(auth.currentUser, {
@@ -45,6 +47,7 @@ const AuthProvider = ({ children }) => {
         const getUser = onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser)
+                setLoading(false)
                 console.log(currentUser.uid, " is signed in")
             } else {
                 setUser('')
@@ -58,6 +61,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         auth,
+        loading,
         updateUser,
         googleSignIn,
         githubSignIn,
