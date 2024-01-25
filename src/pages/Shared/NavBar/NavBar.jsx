@@ -1,10 +1,11 @@
 import React, { Fragment, useContext } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaUser } from "react-icons/fa6";
 import { Tooltip } from 'react-tooltip'
+import logo from '../../../assets/afgani-chef-logo-white.png'
 
 const navigation = [
     { name: 'Home', to: '/', current: true },
@@ -15,12 +16,15 @@ const navigation = [
 
 const NavBar = () => {
 
+    const navigate = useNavigate();
+
     const { user, logOut } = useContext(AuthContext);
 
     console.log(user)
 
     const handleLogOut = () => {
         logOut()
+        navigate('/')
     }
 
     return (
@@ -45,7 +49,7 @@ const NavBar = () => {
                                 <div className="flex-0">
                                     <img
                                         className="h-10 sm:h-16 w-auto"
-                                        src="../../../../public/afgani-chef-logo-white.png"
+                                        src={logo}
                                         alt="Afgani Chef Logo"
                                     />
                                 </div>
@@ -66,14 +70,16 @@ const NavBar = () => {
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
+                                {/* <div>
+                                    <input type="checkbox" className="toggle" checked />
+                                </div> */}
                                 {/* Profile dropdown */}
                                 {user ? <Menu as="div" className="relative ml-3">
                                     <div className='flex items-center gap-4'>
                                         <Menu.Button id='user-name' className="relative flex rounded-full bg-gray-800 text-sm hover:ring-2 hover:ring-white hover:ring-offset-4 hover:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
-                                            {user.photoURL ? 
-                                            <img src={user.photoURL} className="rounded-full w-10 sm:w-20" /> : <FaUser className="h-8 w-8 rounded-full text-white" />}
+                                            {user.photoURL ?
+                                                <img src={user.photoURL} className="rounded-full w-10 sm:w-20" /> : <FaUser className="h-8 w-8 rounded-full text-white" />}
 
                                         </Menu.Button>
                                         <button onClick={handleLogOut} className="hidden sm:block w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Log Out</button>

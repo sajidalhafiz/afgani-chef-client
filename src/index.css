@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .choosePhoto{
+        @apply w-24 h-24 mb-3 rounded-full shadow-lg
+    }
+    .choosePhoto::-webkit-file-upload-button{
+        @apply w-24 h-24 mb-3 rounded-full shadow-lg bg-white cursor-pointer text-slate-700 font-medium
+        hover:bg-slate-200 border-slate-400
+    }
+}

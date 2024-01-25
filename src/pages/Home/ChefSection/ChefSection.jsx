@@ -13,14 +13,15 @@ const ChefSection = () => {
 
     const [chefData, setChefData] = useState([]);
 
-    const [loading, setLoading]  = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/chefData')
+        fetch('https://afgani-chef-server.vercel.app/chefData')
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setChefData(data)
                 setLoading(false)
             })
@@ -30,8 +31,8 @@ const ChefSection = () => {
         <>
             <SectionHeader headingContent={headingContent} />
             <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
-                {loading ? <GridLoader className='text-center mx-auto col-span-3' color="#ffffff" loading={loading}/> :
-                    chefData.map(chef => <ChefCard key={chef.id} chef={chef}/>)
+                {loading ? <GridLoader className='text-center mx-auto col-span-3' color="#ffffff" loading={loading} /> :
+                    chefData.map(chef => <ChefCard key={chef.id} chef={chef} />)
                 }
             </div>
         </>

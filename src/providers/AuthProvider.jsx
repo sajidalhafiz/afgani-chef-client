@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 const auth = getAuth(app);
@@ -14,32 +14,42 @@ const AuthProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
 
+    const passwordReset = email => {
+        setLoading(true)
+        return sendPasswordResetEmail(auth, email)
+    }
+
     const updateUser = (userName, photoURL) => {
-        
-            updateProfile(auth.currentUser, {
-                displayName: `${userName}`,
-                photoURL: `${photoURL}`
-            });
-            
+
+        updateProfile(auth.currentUser, {
+            displayName: userName,
+            photoURL: photoURL
+        });
+
     }
 
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const githubSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -62,6 +72,7 @@ const AuthProvider = ({ children }) => {
         user,
         auth,
         loading,
+        passwordReset,
         updateUser,
         googleSignIn,
         githubSignIn,

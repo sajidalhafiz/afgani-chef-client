@@ -1,24 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const SignUp = () => {
 
+    const navigate = useNavigate();
+
     const { createUser, updateUser } = useContext(AuthContext);
-    const [selectedFile, setSelectedFile] = useState(null);
+    // const [selectedFile, setSelectedFile] = useState(null);
 
 
-    const handlePhotoURL = event => {
-        const file = event.target.files[0]
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                setSelectedFile(e.target.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    }
 
     const handleOnSubmit = async event => {
         event.preventDefault();
@@ -27,9 +19,20 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
-        
+        const file = form.photoURL.files[0];
+        // console.log(file)
+        // if (file) {
+        //     const reader = new FileReader();
+        //     reader.onload = (e) => {
+        //         console.log(e.target.result)
+        //         setSelectedFile(e.target.result);
+        //     };
+        //     reader.readAsDataURL(file);
+        // }
+
+
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
@@ -39,10 +42,12 @@ const SignUp = () => {
                 alert(error.message)
             })
 
-        updateUser(name, selectedFile)
+        // updateUser(name, selectedFile)
+        // console.log(selectedFile)
+        navigate('/')
     }
 
-    
+
 
     return (
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full lg:py-0">
@@ -87,7 +92,7 @@ const SignUp = () => {
                         </div>
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="small_size">Photo URL</label>
-                            <input onChange={handlePhotoURL} name='photoURL' className="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="small_size" type="file" accept='image/*' required/>
+                            <input name='photoURL' className="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="small_size" type="file" accept='image/*' required />
                         </div>
                         <div className="flex items-start">
                             <div className="flex items-center h-5">

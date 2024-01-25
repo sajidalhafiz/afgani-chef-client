@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/afgani-chef-logo-white.png'
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
             <div className="mx-auto max-w-screen-xl text-center">
                 <img
                     className="h-auto sm:h-16 w-auto mx-auto"
-                    src="../../../../public/afgani-chef-logo-white.png"
+                    src={logo}
                     alt="Afgani Chef"
                 />
                 <p className="my-6 text-gray-500 dark:text-gray-400">
@@ -22,11 +23,6 @@ const Footer = () => {
                     <li>
                         <Link to="/about" className="mr-4 hover:underline md:mr-6" preventScrollReset={true}>
                             About Us
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/chefRecipes" className="mr-4 hover:underline md:mr-6" preventScrollReset={true}>
-                            Chef Recipes
                         </Link>
                     </li>
                     <li>
